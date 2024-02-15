@@ -33,9 +33,11 @@ resource "rafay_namespace_network_policy_rule" "demo-withinworkspacerule" {
   spec {
     artifact {
       type = "Yaml"
-      artifact {               
+      artifact {    
+        repository = ""            
+        revision = "main"
         paths {                               
-          name = "file://${path.module}/netfiles/${var.project_name}-within-ws-rule.yaml"        
+          name = "file://netfiles/${var.project_name}-within-ws-rule.yaml"        
         } 
       }
     }
