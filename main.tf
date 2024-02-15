@@ -15,13 +15,8 @@ provider "rafay" {
   # provider_config_file = "./rafay_config.json"
 }
 
-resource "rafay_cluster_sharing" "demo-terraform-specific" {  
-  clustername = "eks-cluster"
-  project     = "mm-project-1"
-  sharing {
-    all = false
-    projects {
-      name = "test"
-    }    
-  }
+resource "rafay_group" "group-Workspace" {
+  depends_on = [rafay_project.rafay_proj_new]
+  name        = "WrkspAdmin-grp-${var.project_name}"
+  description = "Workspace Admin Group for ${var.project_name}"  
 }
