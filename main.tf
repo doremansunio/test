@@ -21,8 +21,7 @@ resource "rafay_group" "group-Workspace" {
 }
 
 #
-resource "rafay_namespace_network_policy_rule" "demo-withinworkspacerule" {
-  depends_on = [time_sleep.wait_30_seconds]
+resource "rafay_namespace_network_policy_rule" "demo-withinworkspacerule" {  
   metadata {    
     name    = var.network_policy_rule_name
     project = var.project_name    
@@ -36,7 +35,7 @@ resource "rafay_namespace_network_policy_rule" "demo-withinworkspacerule" {
         } 
       }
     }
-    version = var.network_policy_rule_version
+    version = "v1"
     sharing {
       enabled = false
     }
